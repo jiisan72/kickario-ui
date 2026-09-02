@@ -1,0 +1,125 @@
+/**
+ * Design tokens as raw CSS custom properties, for anything that needs a
+ * `var(--md-...)` instead of a Tailwind class or a JS import from
+ * `tokens.ts` (e.g. hand-written CSS, non-React consumers).
+ *
+ * Source of truth: the V6 design handoff bundle's Design System Library
+ * board — see tokens.ts's header comment and
+ * docs/DESIGN-V2-HANDOFF.md §3 for the full reasoning.
+ *
+ * Keep these values in sync with `tokens.ts` — they are the same numbers,
+ * expressed a second way on purpose (see packages/ui task spec).
+ */
+
+:root {
+  /* Colors */
+  --md-color-canvas: #F8FAFC;
+  --md-color-surface: #FFFFFF;
+  --md-color-border: #E2E8F0;
+  --md-color-divider: #F1F5F9;
+  --md-color-text-primary: #0F172A;
+  --md-color-text-secondary: #475569;
+  --md-color-text-tertiary: #94A3B8;
+  /* Form/small-caps label grey. See tokens.ts for why this needed its own
+     token rather than reusing text-secondary. */
+  --md-color-text-muted: #64748B;
+  --md-color-brand-red: #E11D48;
+  --md-color-brand-strong: #BE123D;
+  --md-color-brand-tint: #FDE0E6;
+  --md-color-success: #16A34A;
+  --md-color-success-tint: #DCFCE7;
+  --md-color-warning: #EAB308;
+  --md-color-warning-text: #B45309;
+  --md-color-warning-tint: #FEF3C7;
+  --md-color-danger: #B91C1C;
+  --md-color-danger-tint: #FEE2E2;
+
+  /* Type */
+  --md-font-display: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --md-font-body: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --md-text-display-32-size: 28px;
+  --md-text-display-32-weight: 700;
+  --md-text-display-32-line-height: 1.2;
+
+  --md-text-display-24-size: 24px;
+  --md-text-display-24-weight: 700;
+  --md-text-display-24-line-height: 1.2;
+
+  --md-text-body-17-size: 15px;
+  --md-text-body-17-weight: 600;
+  --md-text-body-17-line-height: 1.5;
+
+  --md-text-body-15-size: 15px;
+  --md-text-body-15-weight: 400;
+  --md-text-body-15-line-height: 1.5;
+
+  --md-text-body-13-size: 13px;
+  --md-text-body-13-weight: 400;
+  --md-text-body-13-line-height: 1.4;
+
+  --md-text-eyebrow-11-size: 11px;
+  --md-text-eyebrow-11-weight: 700;
+  --md-text-eyebrow-11-line-height: 1.3;
+  --md-text-eyebrow-11-letter-spacing: 0.5px;
+  --md-text-eyebrow-11-color: var(--md-color-brand-red);
+  /* The design's eyebrow tier IS uppercase, but the Tailwind utility
+     cannot express it (Tailwind's fontSize options drop text-transform) —
+     so `text-eyebrow-11` supplies metrics only and call sites add
+     `uppercase` themselves. This var is here for raw-CSS consumers, which
+     have no such limitation. See tokens.ts. */
+  --md-text-eyebrow-11-text-transform: uppercase;
+
+  /* Tiers V6 uses heavily that previously had no token. 14px is the
+     design's single most common size (138 uses) and had nowhere to land.
+     See tokens.ts for the full histogram and why these are added but not
+     yet applied across every screen. */
+  --md-text-body-14-size: 14px;
+  --md-text-body-14-weight: 400;
+  --md-text-body-14-line-height: 1.5;
+
+  --md-text-body-12-size: 12px;
+  --md-text-body-12-weight: 400;
+  --md-text-body-12-line-height: 1.4;
+
+  --md-text-micro-10-size: 10px;
+  --md-text-micro-10-weight: 500;
+  --md-text-micro-10-line-height: 1.3;
+
+  --md-text-display-20-size: 20px;
+  --md-text-display-20-weight: 700;
+  --md-text-display-20-line-height: 1.25;
+
+  --md-text-display-22-size: 22px;
+  --md-text-display-22-weight: 700;
+  --md-text-display-22-line-height: 1.25;
+
+  --md-text-display-26-size: 26px;
+  --md-text-display-26-weight: 700;
+  --md-text-display-26-line-height: 1.2;
+
+  /* Spacing scale (px) */
+  --md-space-4: 4px;
+  --md-space-8: 8px;
+  --md-space-12: 12px;
+  --md-space-16: 16px;
+  --md-space-20: 20px;
+  --md-space-24: 24px;
+  --md-space-32: 32px;
+  --md-space-40: 40px;
+
+  /* Radius */
+  --md-radius-input: 12px;
+  --md-radius-card-sm: 12px;
+  --md-radius-card-lg: 16px;
+  --md-radius-pill: 999px;
+  --md-radius-featured: 4px 12px 12px 4px;
+
+  /* Elevation — flat, bordered surfaces throughout; no drop shadows
+     anywhere in this design system. Kept as tokens (all "none") rather
+     than removed so anything still referencing shadow-* stays valid. */
+  --md-elevation-flat: none;
+  --md-elevation-resting: none;
+  --md-elevation-sheet: none;
+  --md-elevation-tray: none;
+}

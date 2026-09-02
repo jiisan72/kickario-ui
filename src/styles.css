@@ -1,0 +1,7 @@
+/* Raw CSS custom properties, bundled alongside Tailwind's layers so a
+   single `import "@kickario/ui/styles.css"` gets both. */
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

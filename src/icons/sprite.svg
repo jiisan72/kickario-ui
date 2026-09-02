@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!--
+    Icon sprite. Stroke-based, currentColor (consumers tint via CSS
+    `color`), no fill except where noted (Play is a solid glyph).
+
+    shield/team/link/info: early placeholders kept for future consent-flow
+    screens, predate the V6 design bundle — not sourced from it.
+
+    Everything else below is the System/UI set from the V6 design bundle's
+    Design System Library board icon library, 24x24 viewBox, paths taken
+    verbatim from that board. The Play Casting set (goal/save/foul/... —
+    General/Offense/Defense, 17+ icons) is not included yet — add when the
+    milestone that builds event-logging UI needs it.
+  -->
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3.5l7 2.8v5.2c0 4.6-3 7.8-7 9-4-1.2-7-4.4-7-9V6.3l7-2.8z" />
+    <path d="M9 12l2 2 4-4.2" />
+  </symbol>
+
+  <symbol id="icon-team" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="8.5" cy="8" r="2.75" />
+    <circle cx="16" cy="9" r="2.25" />
+    <path d="M3.5 19c0-2.9 2.24-5 5-5s5 2.1 5 5" />
+    <path d="M14 19c0-2.06 1.4-3.7 3.2-4.3.98.3 1.8 1 2.3 2" />
+  </symbol>
+
+  <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 14.2a4 4 0 0 0 5.66 0l2.5-2.5a4 4 0 1 0-5.66-5.66l-1.2 1.2" />
+    <path d="M14 9.8a4 4 0 0 0-5.66 0l-2.5 2.5a4 4 0 1 0 5.66 5.66l1.2-1.2" />
+  </symbol>
+
+  <symbol id="icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M12 11v5.2" />
+    <path d="M12 8.3v.01" />
+  </symbol>
+
+  <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 11l9-7 9 7"/>
+    <path d="M5 10v9h14v-9"/>
+  </symbol>
+
+  <symbol id="icon-schedule" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="5" width="16" height="16" rx="2"/>
+    <path d="M4 10h16M8 3v4M16 3v4"/>
+  </symbol>
+
+  <symbol id="icon-cast" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20V10M8 20v-6M16 20v-9"/>
+  </symbol>
+
+  <symbol id="icon-roster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="8" r="3"/>
+    <path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+    <circle cx="17" cy="9" r="2.4"/>
+    <path d="M16 14c2.9.3 5 2 5 5.2"/>
+  </symbol>
+
+  <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 6h10M4 12h16M4 18h10"/>
+    <circle cx="17" cy="6" r="2"/>
+    <circle cx="9" cy="18" r="2"/>
+  </symbol>
+
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="7"/>
+    <path d="M21 21l-4.3-4.3"/>
+  </symbol>
+
+  <symbol id="icon-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M11 18l-6-6 6-6"/>
+  </symbol>
+
+  <symbol id="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 9l6 6 6-6"/>
+  </symbol>
+
+  <symbol id="icon-add" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5v14M5 12h14"/>
+  </symbol>
+
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8 5v14l11-7z"/>
+  </symbol>
+
+  <symbol id="icon-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="9" y="2" width="6" height="12" rx="3"/>
+    <path d="M5 11a7 7 0 0014 0M12 18v4"/>
+  </symbol>
+
+  <symbol id="icon-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/>
+  </symbol>
+
+  <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 8a2 2 0 012-2h1l1.5-2h7L17 6h1a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
+    <circle cx="12" cy="13" r="3.2"/>
+  </symbol>
+
+  <symbol id="icon-watching" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </symbol>
+
+  <symbol id="icon-no-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 8.8a15 15 0 0120 0M5.6 12.3a10 10 0 0112.8 0M9.2 15.8a5 5 0 015.6 0M12 19h.01M3 3l18 18"/>
+  </symbol>
+
+  <!-- Play Casting (COMMON). Paths verbatim from the V6 design bundle's
+       Icon Library on board 12; the bundle's hardcoded stroke colours are
+       dropped because this sprite uses currentColor, which is what lets
+       PostCard's tone classes colour a Goal red and everything else grey. -->
+  <symbol id="icon-goal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 8.2l2.7 2-1 3.2h-3.4l-1-3.2z"/>
+    <path d="M12 8.2V4.3M9.7 15.4l-2 3.8M14.3 15.4l2 3.8M6.4 10.4l-3.4-1M17.6 10.4l3.4-1"/>
+  </symbol>
+
+  <symbol id="icon-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z"/>
+    <path d="M9 12l2 2 4-4.5"/>
+  </symbol>
+
+  <symbol id="icon-foul" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/>
+  </symbol>
+
+  <symbol id="icon-corner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4v16M4 4h11l-2 4 2 4H4"/>
+  </symbol>
+
+  <symbol id="icon-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7" y="3" width="10" height="18" rx="1.5"/>
+  </symbol>
+
+  <symbol id="icon-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 20V6M4.5 10l3.5-4 3.5 4"/>
+    <path d="M16 4v14M12.5 14l3.5 4 3.5-4"/>
+  </symbol>
+
+  <!-- Added 2026-09-02, season-stats expansion: a sliding leg reaching a
+       ball low, on a ground line — reads as a tackle at a glance next to
+       foul's X-in-circle and corner's flag, same 24x24 stroke-only style. -->
+  <symbol id="icon-tackle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 19l5-2 4-8"/>
+    <path d="M9 17l3-2"/>
+    <circle cx="17" cy="8" r="2.2"/>
+    <path d="M3 19h7"/>
+  </symbol>
+</svg>

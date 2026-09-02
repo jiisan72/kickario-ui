@@ -1,0 +1,45 @@
+{
+  "name": "@kickario/ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Kickario design-system component library (tokens + React components), generated from the Figma \"Matchday Design System\" Foundations frame.",
+  "type": "module",
+  "main": "./dist/kickario-ui.cjs",
+  "module": "./dist/kickario-ui.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/kickario-ui.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/kickario-ui.js",
+      "require": "./dist/kickario-ui.cjs"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./styles.css": "./dist/kickario-ui.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite build --mode lib --watch",
+    "build": "vite build --mode lib",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4",
+    "vite-plugin-dts": "^3.9.1"
+  }
+}
