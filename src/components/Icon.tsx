@@ -16,6 +16,10 @@ export type IconName =
   | "team"
   | "link"
   | "info"
+  // Single-person placeholder for a missing player photo (2026-09-03,
+  // Roster.tsx) — see sprite.svg's comment on why this isn't a
+  // jersey-number badge like PlayerProfile.tsx's.
+  | "profile"
   | "home"
   | "schedule"
   | "cast"
