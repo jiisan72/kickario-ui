@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from "react";
 import { Icon } from "./Icon";
 import type { IconName } from "./Icon";
+import { NarratingBars } from "./NarratingBars";
 
 /**
  * Live Cast post cards — Design System Library board's "LIVE CAST POST
@@ -186,14 +187,17 @@ export function PostCard({
         // label/description block on the left is — `self-stretch` on
         // this wrapper matches the row's own height (the row itself
         // stays `items-start` so the LEFT content keeps its natural top
-        // alignment; only this indicator centers). Grey (text-tertiary,
-        // the same neutral tone TONE_ICON already uses), deliberately
-        // NOT tone-colored — this signals "being narrated right now",
-        // not the event's own accent, and takes over the icon slot
-        // while active rather than rendering alongside a `kind`-specific
-        // `icon` (mic for a voice update, etc.), which would double up.
+        // alignment; only this indicator centers). A pulsing 3-bar
+        // equalizer (NarratingBars), not a static icon — founder
+        // feedback, 2026-09-02: "Animate the cast icon when the card is
+        // active. Simple lines pulsing up and down." Grey, matching the
+        // static icon it replaces, deliberately NOT tone-colored — this
+        // signals "being narrated right now", not the event's own
+        // accent, and takes over the icon slot while active rather than
+        // rendering alongside a `kind`-specific `icon` (mic for a voice
+        // update, etc.), which would double up.
         <div className="flex flex-shrink-0 items-center self-stretch">
-          <Icon name="cast" size={18} className="text-text-tertiary" aria-hidden="true" />
+          <NarratingBars />
         </div>
       ) : icon ? (
         <Icon name={icon} size={isFeatured ? 28 : 20} className={`flex-shrink-0 ${TONE_ICON[tone]}`} />

@@ -42,3 +42,4 @@ export type { BackHeaderProps } from "./components/BackHeader";
 
 export { PostCard } from "./components/PostCard";
 export type { PostCardProps, PostCardKind } from "./components/PostCard";
+export { NarratingBars } from "./components/NarratingBars";
