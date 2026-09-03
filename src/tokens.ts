@@ -34,7 +34,14 @@ import type { Config } from "tailwindcss";
 // ---------------------------------------------------------------------
 
 export const colors = {
-  canvas: "#F8FAFC",
+  // V6's board value is #F8FAFC — 2% off surface's #FFFFFF, so on a page
+  // with several stacked cards the 1px border (Card's whole separation
+  // mechanism in a no-shadow system) was the only thing telling a card
+  // apart from the page behind it. Deepened here so that border has a
+  // ground to actually stand out from; still light enough that no text
+  // color measured against canvas elsewhere in this file needs
+  // re-checking. See docs/DESIGN-V2-HANDOFF.md §3.
+  canvas: "#EAEEF3",
   surface: "#FFFFFF",
   // Two distinct neutrals, not one: "border" is for card/input outlines,
   // "divider" is the hairline between list rows — the design system
