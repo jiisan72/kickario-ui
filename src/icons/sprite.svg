@@ -162,13 +162,46 @@
     <rect x="6" y="6" width="12" height="12" rx="1.5"/>
   </symbol>
 
-  <!-- "Skip to start" glyph (a bar plus a left-pointing triangle) rather
-       than a circular-arrow "10s" badge: this player's rewind restarts
-       from the beginning (or seeks back 10s on a real clip — see
-       MatchRecap.tsx), and a skip-to-start shape reads correctly for
-       both without implying a specific seek amount. -->
+  <!-- Bar-plus-triangle "skip" glyphs (not a circular-arrow "5s" badge) —
+       used for the recap player's real 5-second seek back/forward (see
+       MatchRecap.tsx's handleRewind()/handleForward()). "forward" is
+       rewind's horizontal mirror. -->
   <symbol id="icon-rewind" viewBox="0 0 24 24" fill="currentColor">
     <rect x="4" y="5" width="2.6" height="14" rx="1"/>
     <path d="M19 5v14L8 12z"/>
+  </symbol>
+
+  <symbol id="icon-forward" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="17.4" y="5" width="2.6" height="14" rx="1"/>
+    <path d="M5 5v14l11-7z"/>
+  </symbol>
+
+  <!-- Recap player volume toggle. Solid speaker cone (matches the other
+       transport glyphs' fill style) plus stroked sound-wave arcs;
+       "volume-mute" swaps the arcs for a crossing X, same speaker cone. -->
+  <symbol id="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 10v4h4l5 4V6l-5 4H4z" fill="currentColor" stroke="none"/>
+    <path d="M16.5 9a4.2 4.2 0 010 6M19 6.5a8 8 0 010 11"/>
+  </symbol>
+
+  <symbol id="icon-volume-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 10v4h4l5 4V6l-5 4H4z" fill="currentColor" stroke="none"/>
+    <path d="M16 9l5 6M21 9l-5 6"/>
+  </symbol>
+
+  <!-- Simple X, for the recap player's "close" control (collapses back to
+       the bare "Listen to Recap" trigger — see MatchRecap.tsx). Pairs
+       visually with icon-add's plus-sign stroke weight. -->
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </symbol>
+
+  <!-- Restart/replay: a near-full circular arrow with an arrowhead tail —
+       swapped in for the center play/pause button once a recap's
+       playlist finishes on its own (see MatchRecap.tsx), so tapping it
+       again reads as "play from the top" rather than "resume". -->
+  <symbol id="icon-replay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.6 12a7.4 7.4 0 1 1 2.4 5.5"/>
+    <path d="M4 17.2v-5h5"/>
   </symbol>
 </svg>

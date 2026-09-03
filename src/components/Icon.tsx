@@ -46,7 +46,16 @@ export type IconName =
   // solid glyphs, same family as "play" above (fill, not stroke).
   | "pause"
   | "rewind"
-  | "stop";
+  | "stop"
+  // Recap player redesign (2026-09-03): 5s skip-forward (rewind's
+  // mirror), a volume toggle (+ its muted state), a close control for
+  // collapsing the player, and a replay glyph for restarting a finished
+  // playlist.
+  | "forward"
+  | "volume"
+  | "volume-mute"
+  | "close"
+  | "replay";
 
 export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, "className"> {
   name: IconName;
