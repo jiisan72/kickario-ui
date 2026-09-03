@@ -81,6 +81,19 @@ export interface PostCardProps extends Omit<HTMLAttributes<HTMLDivElement>, "cla
    *  neutral-tone kind: accent is reserved for goal/card events, so a
    *  neutral post never gets the featured card look even if asked. */
   featured?: boolean;
+  /**
+   * Whichever card the Recap Audio dialogue is CURRENTLY narrating —
+   * driven by playback position (MatchRecap.tsx), not a fixed editorial
+   * flag like `featured`. Deliberately a SEPARATE prop rather than
+   * reusing `featured`: the two-host banter narrates saves, subs,
+   * corners and tackles just as often as goals/cards, and `featured` is
+   * intentionally inert on every neutral-tone kind (see its own comment
+   * above) — a save card set `featured` would silently render
+   * unchanged. `active` works on every kind, tone included, since a
+   * highlight ring/tint reads correctly whether or not the card already
+   * carries a tone accent.
+   */
+  active?: boolean;
   /** Extra content under the label/description — e.g. a substitution's
    *  OUT/IN chip pairs, or reply threads. */
   children?: ReactNode;
@@ -94,20 +107,30 @@ export function PostCard({
   description,
   icon,
   featured = false,
+  active = false,
   children,
   className,
   ...rest
 }: PostCardProps) {
   const tone = toneForKind(kind);
   const isFeatured = featured && tone !== "neutral";
-  const isCard = tone !== "neutral";
+  // `active` promotes even a neutral-tone post (a save, a sub, a corner
+  // — most of what a recap's banter actually narrates) into the boxed
+  // card treatment, so the highlight always renders as a distinct block
+  // rather than depending on the post already having a tone accent.
+  const isCard = tone !== "neutral" || active;
 
+  const borderColor = tone !== "neutral" ? TONE_BORDER[tone] : active ? "border-l-brand-red" : "border-l-transparent";
   const containerClasses = isCard
-    ? `bg-surface border border-border border-l-4 ${TONE_BORDER[tone]} ${isFeatured ? "rounded-featured" : "rounded-card-sm"} p-4`
+    ? `bg-surface border ${active ? "border-brand-red" : "border-border"} border-l-4 ${borderColor} ${isFeatured ? "rounded-featured" : "rounded-card-sm"} p-4 ${active ? "bg-brand-tint" : ""} transition-colors duration-300`
     : "border-b border-divider py-3";
 
   return (
-    <div className={`flex items-start justify-between gap-3 ${containerClasses} ${className ?? ""}`} {...rest}>
+    <div
+      className={`flex items-start justify-between gap-3 ${containerClasses} ${className ?? ""}`}
+      aria-current={active ? "true" : undefined}
+      {...rest}
+    >
       <div className="flex flex-col gap-1">
         {/*
           THE FEED HIERARCHY WAS INVERTED. V6's live-cast post card, read
