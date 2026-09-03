@@ -148,4 +148,27 @@
     <circle cx="17" cy="8" r="2.2"/>
     <path d="M3 19h7"/>
   </symbol>
+
+  <!-- Recap Audio player transport controls, added 2026-09-02. Solid
+       glyphs, same family as "play" above (fill:currentColor, no
+       stroke) — a media-control family reads as one visual language when
+       every member of it is rendered the same way. -->
+  <symbol id="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="6" y="4" width="4.2" height="16" rx="1"/>
+    <rect x="13.8" y="4" width="4.2" height="16" rx="1"/>
+  </symbol>
+
+  <symbol id="icon-stop" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="6" y="6" width="12" height="12" rx="1.5"/>
+  </symbol>
+
+  <!-- "Skip to start" glyph (a bar plus a left-pointing triangle) rather
+       than a circular-arrow "10s" badge: this player's rewind restarts
+       from the beginning (or seeks back 10s on a real clip — see
+       MatchRecap.tsx), and a skip-to-start shape reads correctly for
+       both without implying a specific seek amount. -->
+  <symbol id="icon-rewind" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="4" y="5" width="2.6" height="14" rx="1"/>
+    <path d="M19 5v14L8 12z"/>
+  </symbol>
 </svg>

@@ -41,7 +41,12 @@ export type IconName =
   | "card"
   | "sub"
   // Added in the 2026-09-02 season-stats expansion, same Play Casting set.
-  | "tackle";
+  | "tackle"
+  // Added for the Recap Audio player's transport controls (2026-09-02):
+  // solid glyphs, same family as "play" above (fill, not stroke).
+  | "pause"
+  | "rewind"
+  | "stop";
 
 export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, "className"> {
   name: IconName;
