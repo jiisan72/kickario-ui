@@ -356,4 +356,21 @@ export const kickarioTheme: NonNullable<Config["theme"]>["extend"] = {
     "display-22": ["22px", { lineHeight: "1.25", fontWeight: "700" }],
     "display-26": ["26px", { lineHeight: "1.2", fontWeight: "700" }],
   },
+  // A single keyframe, used by NarratingBars (components/NarratingBars.tsx)
+  // to pulse each of its three bars independently via staggered
+  // `[animation-delay:...]` arbitrary values on the same `animate-cast-bar`
+  // class — one keyframe, three timings, rather than three near-identical
+  // keyframes. `scaleY` (not `height`) so it never triggers layout, and
+  // `transform-origin: bottom` (Tailwind's `origin-bottom`, applied at the
+  // call site) is what makes it read as a level meter growing UP from its
+  // own baseline rather than expanding from its center.
+  keyframes: {
+    "cast-bar": {
+      "0%, 100%": { transform: "scaleY(0.35)" },
+      "50%": { transform: "scaleY(1)" },
+    },
+  },
+  animation: {
+    "cast-bar": "cast-bar 0.9s ease-in-out infinite",
+  },
 };
