@@ -28,6 +28,9 @@ export type { RadioProps } from "./components/Radio";
 export { Card } from "./components/Card";
 export type { CardProps, CardTone } from "./components/Card";
 
+export { SectionHeading } from "./components/SectionHeading";
+export type { SectionHeadingProps, SectionHeadingTone } from "./components/SectionHeading";
+
 export { SegmentedControl } from "./components/SegmentedControl";
 export type { SegmentedControlProps, SegmentedControlOption } from "./components/SegmentedControl";
 
