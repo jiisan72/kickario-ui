@@ -12,7 +12,7 @@ import type { HTMLAttributes } from "react";
  * types can't accidentally pick up a color. Chip is for standalone tags —
  * status badges, roster labels, provenance notes.
  */
-export type ChipTone = "live" | "neutral" | "success" | "warning" | "danger" | "provenance";
+export type ChipTone = "live" | "neutral" | "success" | "warning" | "danger" | "provenance" | "info";
 
 export interface ChipProps extends Omit<HTMLAttributes<HTMLSpanElement>, "className"> {
   tone: ChipTone;
@@ -27,6 +27,7 @@ const TONE_CLASSES: Record<ChipTone, string> = {
   warning: "bg-warning-tint text-warning-text",
   danger: "bg-danger-tint text-danger",
   provenance: "bg-brand-tint text-brand-red",
+  info: "bg-info-tint text-info",
 };
 
 export function Chip({ tone, label, className, ...rest }: ChipProps) {

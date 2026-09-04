@@ -83,6 +83,13 @@ export const colors = {
   "brand-tint": "#FDE0E6",
   success: "#16A34A",
   "success-tint": "#DCFCE7",
+  // Not in the V6 design bundle — added 2026-09-04 for the match-card
+  // league badge (EA, in blue) once the schedule import started carrying
+  // a real per-fixture league. Picked (rather than estimated) for AA
+  // contrast against its own tint: 5.49:1, comfortably over the 4.5:1
+  // floor and better than success's own 3.0:1 on success-tint above.
+  info: "#1D4ED8",
+  "info-tint": "#DBEAFE",
   // "warning" pairs two values by design, not an inconsistency: EAB308 is
   // the accent (borders, icons — e.g. a Yellow Card event's left border)
   // and B45309 is the darker, more-readable label color shown alongside

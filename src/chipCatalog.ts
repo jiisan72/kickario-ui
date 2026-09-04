@@ -1,7 +1,7 @@
 import type { ChipTone } from "./components/Chip";
 
 export interface ChipCatalogEntry {
-  group: "Cast & Game Status" | "Content Provenance" | "Report & Safety";
+  group: "Cast & Game Status" | "Content Provenance" | "Report & Safety" | "Schedule & Fixtures";
   label: string;
   tone: ChipTone;
 }
@@ -30,4 +30,11 @@ export const chipCatalog: ChipCatalogEntry[] = [
   { group: "Report & Safety", label: "Harassment", tone: "danger" },
   { group: "Report & Safety", label: "Blocked", tone: "danger" },
   { group: "Report & Safety", label: "Not collected yet", tone: "neutral" },
+
+  // Schedule & Fixtures (2026-09-04, the match-card league badge —
+  // Schedule.tsx's LEAGUE_CHIP_TONE picks between these two tones per
+  // league code; "info" is this catalog's first use of that tone)
+  { group: "Schedule & Fixtures", label: "EA", tone: "info" },
+  { group: "Schedule & Fixtures", label: "Pre-NPL", tone: "success" },
+  { group: "Schedule & Fixtures", label: "SoCal", tone: "success" },
 ];
