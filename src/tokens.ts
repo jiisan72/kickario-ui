@@ -376,8 +376,20 @@ export const kickarioTheme: NonNullable<Config["theme"]>["extend"] = {
       "0%, 100%": { transform: "scaleY(0.35)" },
       "50%": { transform: "scaleY(1)" },
     },
+    // A slower, gentler breathing pulse for the large "on air" cast badge
+    // (MatchRecap.tsx's player Card) — a placeholder for real visuals/
+    // video, per the founder's own framing: "for now, show the cast icon
+    // large, pulsing while they talk." Distinct from cast-bar above
+    // (which reads as a level meter reacting to speech) — this one reads
+    // as "a broadcast is live," so it's a slow scale+opacity breathe
+    // rather than a fast bar-height jitter.
+    "cast-pulse": {
+      "0%, 100%": { transform: "scale(1)", opacity: "1" },
+      "50%": { transform: "scale(1.08)", opacity: "0.75" },
+    },
   },
   animation: {
     "cast-bar": "cast-bar 0.9s ease-in-out infinite",
+    "cast-pulse": "cast-pulse 1.6s ease-in-out infinite",
   },
 };
