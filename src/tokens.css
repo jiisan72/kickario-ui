@@ -28,6 +28,10 @@
   --md-color-brand-tint: #FDE0E6;
   --md-color-success: #16A34A;
   --md-color-success-tint: #DCFCE7;
+  /* Not in the V6 design bundle — added 2026-09-04 for the match-card
+     league badge. See tokens.ts's info/info-tint comment. */
+  --md-color-info: #1D4ED8;
+  --md-color-info-tint: #DBEAFE;
   --md-color-warning: #EAB308;
   --md-color-warning-text: #B45309;
   --md-color-warning-tint: #FEF3C7;
