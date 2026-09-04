@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes } from "react";
 
 export type ButtonVariant = "primary" | "secondary" | "compact" | "inline" | "bare";
 export type ButtonTone = "default" | "destructive";
+export type ButtonSize = "default" | "icon";
 
 export interface ButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className"> {
@@ -14,6 +15,16 @@ export interface ButtonProps
   variant?: ButtonVariant;
   /** destructive = "Remove comment" / "Block user" style actions. */
   tone?: ButtonTone;
+  /**
+   * icon: a fixed 44x44px circular hit target for a lone icon/glyph child
+   * (a chevron, a pencil) — only meaningful with variant="bare", whose
+   * default sizing is unconstrained inline text and wrong for a discrete
+   * control. Deliberately carries no color of its own (unlike bare's
+   * default brand-red/underline treatment) since icon-only controls need
+   * per-instance color — pass it via className, along with a
+   * focus-visible:ring-* color.
+   */
+  size?: ButtonSize;
   className?: string;
 }
 
@@ -57,7 +68,7 @@ const BARE_TONE = {
 } as const;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { variant = "primary", tone = "default", className, type = "button", ...rest },
+  { variant = "primary", tone = "default", size = "default", className, type = "button", ...rest },
   ref,
 ) {
   const containerVariant = CONTAINER_VARIANT[variant];
@@ -65,7 +76,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   // 44px is the minimum comfortable tap target for a hand-held cast
   // console — primary/secondary/compact all clear it via padding+line
   // height; bare stays unconstrained since it's inline text, not a
-  // discrete control.
+  // discrete control, UNLESS size="icon" asks for the same 44px floor
+  // for a lone icon/glyph child instead.
   let variantClasses: string;
   switch (containerVariant) {
     case "filled":
@@ -78,7 +90,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       variantClasses = `rounded-pill px-4 py-2.5 min-h-[44px] text-body-13 ${COMPACT_TONE[tone]}`;
       break;
     case "bare":
-      variantClasses = `p-0 text-body-15 ${BARE_TONE[tone]}`;
+      variantClasses =
+        size === "icon" ? "h-11 w-11 rounded-pill p-0" : `p-0 text-body-15 ${BARE_TONE[tone]}`;
       break;
   }
 
