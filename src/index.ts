@@ -45,4 +45,6 @@ export type { BackHeaderProps } from "./components/BackHeader";
 
 export { PostCard } from "./components/PostCard";
 export type { PostCardProps, PostCardKind } from "./components/PostCard";
+export { PlayerAvatar } from "./components/PlayerAvatar";
+export type { PlayerAvatarProps } from "./components/PlayerAvatar";
 export { NarratingBars } from "./components/NarratingBars";
