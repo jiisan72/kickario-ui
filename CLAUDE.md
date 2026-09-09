@@ -25,9 +25,25 @@ visual here; it isn't repeated in this file.
 - Changing the theme means changing `src/tokens.ts` **and** (for the raw
   CSS custom properties) `src/tokens.css` — they're maintained in
   parallel, not generated from one another.
-- Any commit to `main` is live for every app on its next `npm install`.
-  There's no version gate; pin apps to a `#<sha>` if a change needs to
-  roll out one app at a time.
+- **A commit here reaches an app only when that app's lockfile moves.**
+  Apps depend on `github:jiisan72/kickario-ui#main`, but npm resolves
+  that to a commit sha in `package-lock.json` and keeps the pin on every
+  later install (CI and deploys included) — `#main` does not float.
+  Shipping a change is two steps: push here, then `npm update
+  @kickario/ui` in the app and commit its lockfile. The upside is the
+  version gate for free: an app stays on its pin until someone moves it.
+- **Per-product color goes through the five `--md-color-*-rgb` custom
+  properties** in `src/tokens.css` (the `accent*` Tailwind colors are
+  bound to them, as `rgb(var(...) / <alpha-value>)`), not through a
+  per-app build or a fork of the components. Trainer's green override
+  lives in kickario-trainer's `src/index.css`. The triplet form
+  ("255 153 28") is required — hex there would break `ring-accent/40`.
+  Everything else in the palette (brand-red, success, danger, the
+  neutrals) is literal hex and shared as-is.
+- **Diverging from `jiisan72/kickario`'s design tokens is now a real
+  possibility** — `packages/ui` no longer exists there, so this repo is
+  the only copy. Design-system decisions recorded in that repo's
+  `docs/DECISIONS.md`/`CLAUDE.md` before 2026-09-09 still apply here.
 
 ## Environment
 

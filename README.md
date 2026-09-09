@@ -48,6 +48,36 @@ export default {
 plain Node, where the component bundle's `react/jsx-runtime` import would
 just be dead weight.
 
+### Your product's color
+
+The components paint their interactive states with the `accent*` colors
+— Matchday's orange by default. Those five colors are bound to CSS custom
+properties, so an app with its own product color overrides them once, in
+its own stylesheet, and every Button/Toggle/Radio/SegmentedControl/
+BottomNav follows:
+
+```css
+/* channel triplets, not hex — Tailwind's opacity modifiers need them */
+:root {
+  --md-color-accent-rgb: 20 153 84;
+  --md-color-on-accent-rgb: 255 255 255;
+  --md-color-accent-strong-rgb: 13 122 66;
+  --md-color-accent-text-rgb: 13 122 66;
+  --md-color-accent-tint-rgb: 221 246 231;
+}
+```
+
+(`kickario-trainer`'s `src/index.css` is the live example.) Check the
+contrast of your `on-accent` on your `accent` before shipping — the
+Matchday pair is measured in `src/tokens.ts`.
+
+### Picking up a change
+
+`npm install` in an app builds the commit its `package-lock.json` pins,
+not whatever `main` is now — `#main` in `package.json` does not float.
+After a change lands here, run `npm update @kickario/ui` in the app and
+commit its lockfile; that is the deploy.
+
 ## Working on it
 
 ```bash
