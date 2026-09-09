@@ -92,7 +92,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       break;
     case "bare":
       variantClasses =
-        size === "icon" ? "h-11 w-11 rounded-pill p-0" : `p-0 text-body-15 ${BARE_TONE[tone]}`;
+        // min-h keeps the 44px target floor (README "Rules for products"
+        // #4) even though the text-only treatment has no visible box —
+        // a bare "Sign out" or "Cancel" is a 23px hit area otherwise.
+        size === "icon"
+          ? "h-11 w-11 rounded-pill p-0"
+          : `min-h-[44px] p-0 text-body-15 ${BARE_TONE[tone]}`;
       break;
   }
 

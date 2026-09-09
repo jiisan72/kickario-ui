@@ -32,6 +32,7 @@ export interface BottomNavProps {
 export function BottomNav({ items, className }: BottomNavProps) {
   return (
     <nav
+      aria-label="Primary"
       className={`flex w-full items-center justify-between border-t border-border bg-surface px-4 pb-2 pt-3 ${className ?? ""}`}
     >
       {items.map((item) => (
