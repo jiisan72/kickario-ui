@@ -81,6 +81,18 @@ export const colors = {
   // set.
   "brand-strong": "#BE123D",
   "brand-tint": "#FDE0E6",
+  // Train's own accent, per the Cariotrain family color split (CLAUDE.md
+  // Brand DNA / the Kickario Train PRD §2): "-ario" carries a
+  // product-specific color, green for Train — kept as its own token
+  // rather than reusing `success` below, which is a semantic state color
+  // (a green toast, a passed check) and would collide with brand meaning
+  // if Train's screens borrowed it for buttons/accents. Same
+  // accent/strong/tint shape as brand-red above, picked at a visibly
+  // different saturation/hue from `success` so the two don't read as one
+  // color doing double duty.
+  "brand-green": "#149954",
+  "brand-green-strong": "#0D7A42",
+  "brand-green-tint": "#DDF6E7",
   success: "#16A34A",
   "success-tint": "#DCFCE7",
   // Not in the V6 design bundle — added 2026-09-04 for the match-card
