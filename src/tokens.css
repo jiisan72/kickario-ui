@@ -28,14 +28,27 @@
   --md-color-brand-red: #BD133D;
   --md-color-brand-strong: #A0102F;
   --md-color-brand-tint: #F6DEE4;
-  /* Kickario Matchday product accent (orange). accent is a FILL color;
-     accent-text is for text on light surfaces, on-accent for text on
-     accent fills (white on accent fails AA). Ratios in tokens.ts. */
-  --md-color-accent: #FF991C;
-  --md-color-on-accent: #0F172A;
-  --md-color-accent-strong: #D98218;
-  --md-color-accent-text: #945910;
-  --md-color-accent-tint: #FFF1DF;
+  /* PRODUCT accent — Kickario Matchday's orange by default. accent is a
+     FILL color; accent-text is for text on light surfaces, on-accent for
+     text on accent fills (white on the orange fails AA). Ratios in
+     tokens.ts.
+
+     The *-rgb triplets are the source of truth: tokens.ts binds the
+     Tailwind `accent*` colors to them (as `rgb(var(...) / <alpha>)`), and
+     the hex-looking properties below are derived. An app that carries a
+     different product color (Trainer: green) overrides ONLY the five
+     *-rgb properties in its own stylesheet, and every shared component
+     follows — see kickario-trainer's src/index.css. */
+  --md-color-accent-rgb: 255 153 28;        /* #FF991C */
+  --md-color-on-accent-rgb: 15 23 42;       /* #0F172A */
+  --md-color-accent-strong-rgb: 217 130 24; /* #D98218 */
+  --md-color-accent-text-rgb: 148 89 16;    /* #945910 */
+  --md-color-accent-tint-rgb: 255 241 223;  /* #FFF1DF */
+  --md-color-accent: rgb(var(--md-color-accent-rgb));
+  --md-color-on-accent: rgb(var(--md-color-on-accent-rgb));
+  --md-color-accent-strong: rgb(var(--md-color-accent-strong-rgb));
+  --md-color-accent-text: rgb(var(--md-color-accent-text-rgb));
+  --md-color-accent-tint: rgb(var(--md-color-accent-tint-rgb));
   --md-color-success: #16A34A;
   --md-color-success-tint: #DCFCE7;
   /* Not in the V6 design bundle — added 2026-09-04 for the match-card

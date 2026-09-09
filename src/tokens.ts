@@ -97,11 +97,21 @@ export const colors = {
   // Rule: accent is a FILL color (buttons, borders, rings, icons, selected
   // states); use accent-text for text on light surfaces and on-accent for
   // text on accent fills. Never put white text on accent.
-  accent: "#FF991C",
-  "on-accent": "#0F172A",
-  "accent-strong": "#D98218",
-  "accent-text": "#945910",
-  "accent-tint": "#FFF1DF",
+  //
+  // Bound to the `--md-color-*-rgb` custom properties in tokens.css
+  // (which hold the Matchday values above as defaults) rather than to
+  // literal hex, so each app can carry its OWN product color through the
+  // shared components: Trainer sets those five properties to its green
+  // in its own stylesheet and every Button/Toggle/Radio/SegmentedControl
+  // built here follows, with no per-product build of this package. The
+  // channel-triplet form ("255 153 28") is what lets Tailwind's opacity
+  // modifiers (`ring-accent/40`) keep working; the literal-hex tokens
+  // above and below are unaffected.
+  accent: "rgb(var(--md-color-accent-rgb) / <alpha-value>)",
+  "on-accent": "rgb(var(--md-color-on-accent-rgb) / <alpha-value>)",
+  "accent-strong": "rgb(var(--md-color-accent-strong-rgb) / <alpha-value>)",
+  "accent-text": "rgb(var(--md-color-accent-text-rgb) / <alpha-value>)",
+  "accent-tint": "rgb(var(--md-color-accent-tint-rgb) / <alpha-value>)",
   // Kickario TRAINER product accent (green), per the family color split
   // (the main repo's CLAUDE.md Brand DNA / the Trainer PRD §2 in
   // jiisan72/kickario-trainer): each product carries its own color the
