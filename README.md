@@ -4,7 +4,7 @@ The Kickario design system: tokens (colors, spacing, type, radius,
 elevation) and the React components built on them, generated from the
 Figma "Matchday Design System" Foundations frame. Every Kickario app uses
 it — `jiisan72/kickario` (the main app, live at kickario.com) and
-`jiisan72/kickario-trainer` (Kickario Train) — so a change here reaches
+`jiisan72/kickario-trainer` (Kickario Trainer) — so a change here reaches
 all of them.
 
 ## Using it from an app
@@ -64,5 +64,5 @@ it up on its next `npm install` (or `npm update @kickario/ui`).
 ## History
 
 Lived at `packages/ui` inside `jiisan72/kickario` until 2026-09-09, when
-Kickario Train became its own repo and needed the same components. The
+Kickario Trainer became its own repo and needed the same components. The
 commit history here is that directory's, split out with `git subtree`.

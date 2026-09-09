@@ -20,7 +20,7 @@ export interface ButtonProps
    * (a chevron, a pencil) — only meaningful with variant="bare", whose
    * default sizing is unconstrained inline text and wrong for a discrete
    * control. Deliberately carries no color of its own (unlike bare's
-   * default brand-red/underline treatment) since icon-only controls need
+   * default accent-text/underline treatment) since icon-only controls need
    * per-instance color — pass it via className, along with a
    * focus-visible:ring-* color.
    */
@@ -44,26 +44,27 @@ const CONTAINER_VARIANT: Record<ButtonVariant, "filled" | "outlined" | "compact"
 };
 
 // Flat, bordered surfaces throughout — no drop shadows anywhere in this
-// design system (see tokens.ts).
+// design system (see tokens.ts). Accent fills carry `text-on-accent` (ink),
+// never white — white on accent is 3.08:1 and fails AA (see tokens.ts).
 const FILLED_TONE = {
-  default: "bg-brand-red text-surface hover:bg-brand-strong focus-visible:ring-brand-red",
+  default: "bg-accent text-on-accent hover:bg-accent-strong focus-visible:ring-accent",
   destructive: "bg-danger text-surface hover:opacity-90 focus-visible:ring-danger",
 } as const;
 
 const OUTLINED_TONE = {
   default:
-    "bg-surface text-text-primary border border-border hover:bg-canvas focus-visible:ring-brand-red",
+    "bg-surface text-text-primary border border-border hover:bg-canvas focus-visible:ring-accent",
   destructive:
     "bg-surface text-danger border border-danger hover:bg-canvas focus-visible:ring-danger",
 } as const;
 
 const COMPACT_TONE = {
-  default: "bg-brand-red text-surface hover:bg-brand-strong focus-visible:ring-brand-red",
+  default: "bg-accent text-on-accent hover:bg-accent-strong focus-visible:ring-accent",
   destructive: "bg-danger text-surface hover:opacity-90 focus-visible:ring-danger",
 } as const;
 
 const BARE_TONE = {
-  default: "bg-transparent text-brand-red hover:underline focus-visible:ring-brand-red",
+  default: "bg-transparent text-accent-text hover:underline focus-visible:ring-accent",
   destructive: "bg-transparent text-danger hover:underline focus-visible:ring-danger",
 } as const;
 

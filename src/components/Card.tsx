@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "react";
 /**
  * "default" is the plain surface card. Any other tone swaps the background
  * to that semantic tint — e.g. `tone="brand"` is the tinted-note-card
- * pattern (bg-brand-tint).
+ * pattern (bg-accent-tint).
  *
  * Flat, bordered surface — no drop shadow (see tokens.ts's elevation
  * tokens, all "none"). A 1px border is what separates a card from the
@@ -20,7 +20,7 @@ export interface CardProps extends Omit<HTMLAttributes<HTMLDivElement>, "classNa
 
 const TONE_CLASSES: Record<CardTone, string> = {
   default: "bg-surface border-border",
-  brand: "bg-brand-tint border-brand-tint",
+  brand: "bg-accent-tint border-accent-tint",
   success: "bg-success-tint border-success-tint",
   warning: "bg-warning-tint border-warning-tint",
   danger: "bg-danger-tint border-danger-tint",

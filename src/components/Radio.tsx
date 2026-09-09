@@ -25,10 +25,10 @@ export function Radio({ checked, onChange, label, name, value, disabled, classNa
       />
       <span
         aria-hidden="true"
-        className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-pill border-2 border-border transition-colors peer-checked:border-brand-red peer-focus-visible:ring-2 peer-focus-visible:ring-brand-red/40"
+        className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-pill border-2 border-border transition-colors peer-checked:border-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent/40"
       >
         <span
-          className={`h-2.5 w-2.5 rounded-pill bg-brand-red transition-opacity ${checked ? "opacity-100" : "opacity-0"}`}
+          className={`h-2.5 w-2.5 rounded-pill bg-accent transition-opacity ${checked ? "opacity-100" : "opacity-0"}`}
         />
       </span>
       {label ? <span className="text-body-15 text-text-primary">{label}</span> : null}

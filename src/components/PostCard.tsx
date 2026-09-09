@@ -88,7 +88,7 @@ const DEFAULT_ICON: Partial<Record<string, IconName>> = {
 };
 
 const TONE_BORDER: Record<Tone, string> = {
-  accent: "border-l-brand-red",
+  accent: "border-l-accent",
   warning: "border-l-warning",
   danger: "border-l-danger",
   info: "border-l-info",
@@ -96,7 +96,7 @@ const TONE_BORDER: Record<Tone, string> = {
 };
 
 const TONE_TEXT: Record<Tone, string> = {
-  accent: "text-brand-red",
+  accent: "text-accent-text",
   warning: "text-warning-text",
   danger: "text-danger",
   info: "text-info",
@@ -104,7 +104,7 @@ const TONE_TEXT: Record<Tone, string> = {
 };
 
 const TONE_ICON: Record<Tone, string> = {
-  accent: "text-brand-red",
+  accent: "text-accent",
   warning: "text-warning",
   danger: "text-danger",
   info: "text-info",
@@ -215,19 +215,19 @@ export function PostCard({
   // tone with its own `borderAccent` (currently just Goal) gets one —
   // Yellow/Red Card cards signal via their icon badge instead (see this
   // file's own header comment).
-  const borderColor = behavior.borderAccent ? TONE_BORDER[tone] : active ? "border-l-brand-red" : "border-l-transparent";
+  const borderColor = behavior.borderAccent ? TONE_BORDER[tone] : active ? "border-l-accent" : "border-l-transparent";
   // The glow is a deliberate, narrow exception to this design system's
   // "no drop shadows anywhere" rule (tokens.ts) — it isn't decorative
   // elevation, it's a live state signal (the two-host recap dialogue is
   // narrating THIS card right now), the same category of exception the
-  // focus-visible ring already is elsewhere in this codebase. #E11D48 is
-  // brand-red's own hex (tokens.ts) — kept as an explicit rgba rather
+  // focus-visible ring already is elsewhere in this codebase. #F06B00 is
+  // accent's own hex (tokens.ts) — kept as an explicit rgba rather
   // than a Tailwind color utility since box-shadow needs a literal color
   // value, not a class, and "slight" is the operative word: low alpha,
   // no spread, small blur.
-  const activeGlow = active ? "shadow-[0_0_10px_rgba(225,29,72,0.35)]" : "";
+  const activeGlow = active ? "shadow-[0_0_10px_rgba(240,107,0,0.35)]" : "";
   const containerClasses = isCard
-    ? `bg-surface border ${active ? "border-brand-red" : "border-border"} border-l-4 ${borderColor} ${isFeatured ? "rounded-featured" : "rounded-card-sm"} p-4 ${active ? "bg-brand-tint" : ""} ${activeGlow} transition-colors transition-shadow duration-300`
+    ? `bg-surface border ${active ? "border-accent" : "border-border"} border-l-4 ${borderColor} ${isFeatured ? "rounded-featured" : "rounded-card-sm"} p-4 ${active ? "bg-accent-tint" : ""} ${activeGlow} transition-colors transition-shadow duration-300`
     : "border-b border-divider py-3";
 
   return (
@@ -241,7 +241,7 @@ export function PostCard({
           THE FEED HIERARCHY WAS INVERTED. V6's live-cast post card, read
           off the canvas verbatim:
 
-              12px / 700 / 0.5px tracking / #e11d48   "GOAL ALBION SM!"
+              12px / 700 / 0.5px tracking / accent    "GOAL ALBION SM!"
               15px / 600 / #0f172a                    "#9 Marco R. scores on rebound!"
 
           i.e. the event TYPE is the small coloured eyebrow, and the

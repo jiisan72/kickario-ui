@@ -39,7 +39,7 @@ export function BackHeader({ onBack, title, className }: BackHeaderProps) {
         type="button"
         onClick={onBack}
         aria-label="Back"
-        className="-ml-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-input text-text-primary transition-colors hover:bg-canvas focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red"
+        className="-ml-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-input text-text-primary transition-colors hover:bg-canvas focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
       >
         <Icon name="back" size={24} />
       </button>

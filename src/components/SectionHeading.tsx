@@ -38,7 +38,7 @@ export interface SectionHeadingProps extends Omit<HTMLAttributes<HTMLHeadingElem
 
 const TONE_CLASSES: Record<SectionHeadingTone, string> = {
   default: "text-text-secondary",
-  brand: "text-brand-red",
+  brand: "text-accent-text",
 };
 
 export function SectionHeading({

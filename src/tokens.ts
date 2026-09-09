@@ -74,23 +74,44 @@ export const colors = {
   // off it in the Milestone 2 review — this token is one step away from
   // that mistake, not far from it.
   "text-muted": "#64748B",
-  "brand-red": "#E11D48",
-  // Not in the design bundle itself (no hover/pressed state is shown in a
-  // static mockup) — a deliberately darker step of brand-red for
-  // interactive states, same role brand-strong played in the old token
-  // set.
-  "brand-strong": "#BE123D",
-  "brand-tint": "#FDE0E6",
-  // Train's own accent, per the Cariotrain family color split (CLAUDE.md
-  // Brand DNA / the Kickario Train PRD §2 in jiisan72/kickario-trainer,
-  // which carries its own copy of this file): "-ario" carries a
-  // product-specific color, green for Train — kept as its own token
-  // rather than reusing `success` below, which is a semantic state color
-  // (a green toast, a passed check) and would collide with brand meaning
-  // if Train's screens borrowed it for buttons/accents. Same
-  // accent/strong/tint shape as brand-red above, picked at a visibly
-  // different saturation/hue from `success` so the two don't read as one
-  // color doing double duty.
+  // Kickario PARENT-brand red. Values come from the 2026-09-08 Kickario
+  // logo set (the shield's red), superseding the V6-bundle #E11D48 /
+  // #BE123D / #FDE0E6. 6.32:1 on white; white on it 6.32:1. Inside the
+  // Matchday app it is reserved for "Kickario the brand" and the LIVE
+  // treatment (Chip live/provenance, SponsorBanner's live glow) —
+  // everything that used to reach for it as a generic accent now uses
+  // the accent-* set below.
+  "brand-red": "#BD133D",
+  // Darker step of brand-red for interactive states (no hover/pressed
+  // state exists in the logo set; derived).
+  "brand-strong": "#A0102F",
+  "brand-tint": "#F6DEE4",
+  // Kickario MATCHDAY product accent (orange), added 2026-09-08, retuned
+  // 2026-09-09 (the original #F06B00 read too muted/"barfy" once live).
+  // Measured WCAG ratios — do not re-derive:
+  //   accent        #FF991C — white on it is only 2.14:1 (fails AA)
+  //   on-accent     #0F172A — 8.35:1 on accent
+  //   accent-strong #D98218 — on-accent on it 6.08:1 (hover/pressed)
+  //   accent-text   #945910 — 5.68 on white, 4.88 on canvas, 5.11 on accent-tint
+  //   accent-tint   #FFF1DF
+  // Rule: accent is a FILL color (buttons, borders, rings, icons, selected
+  // states); use accent-text for text on light surfaces and on-accent for
+  // text on accent fills. Never put white text on accent.
+  accent: "#FF991C",
+  "on-accent": "#0F172A",
+  "accent-strong": "#D98218",
+  "accent-text": "#945910",
+  "accent-tint": "#FFF1DF",
+  // Kickario TRAINER product accent (green), per the family color split
+  // (the main repo's CLAUDE.md Brand DNA / the Trainer PRD §2 in
+  // jiisan72/kickario-trainer): each product carries its own color the
+  // way Matchday carries orange above. Kept as its own token rather than
+  // reusing `success` below, which is a semantic state color (a green
+  // toast, a passed check) and would collide with brand meaning if
+  // Trainer's screens borrowed it for buttons/accents. Same
+  // accent/strong/tint shape as brand-red, picked at a visibly different
+  // saturation/hue from `success` so the two don't read as one color
+  // doing double duty.
   "brand-green": "#149954",
   "brand-green-strong": "#0D7A42",
   "brand-green-tint": "#DDF6E7",
@@ -254,7 +275,7 @@ export const typography = {
     fontSize: "11px",
     lineHeight: "1.3",
     letterSpacing: eyebrowLetterSpacing,
-    color: colors["brand-red"],
+    color: colors["accent-text"],
     textTransform: "uppercase",
   },
   // The tiers added for the sizes V6 actually uses. Mirrored here as well
@@ -333,7 +354,7 @@ export const kickarioTheme: NonNullable<Config["theme"]>["extend"] = {
     // and nothing more.
     //
     // Worth writing down because the `typography` export below claims
-    // this tier is uppercase and brand-red, and it genuinely is in the
+    // this tier is uppercase and accent-text, and it genuinely is in the
     // design — but a reader who assumes `text-eyebrow-11` delivers that
     // will be wrong. Call sites add `uppercase` (and their own colour)
     // explicitly, which is also why the hand-rolled

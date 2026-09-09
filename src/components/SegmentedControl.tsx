@@ -70,9 +70,9 @@ export function SegmentedControl<T extends string>({
             // was the outlier. At 11px the four-option consent case fits
             // with room to spare, and the 44px minimum tap target is
             // untouched either way.
-            className={`min-h-[44px] min-w-0 flex-1 rounded-pill px-1 py-2 text-[11px] font-bold leading-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`min-h-[44px] min-w-0 flex-1 rounded-pill px-1 py-2 text-[11px] font-bold leading-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-50 ${
               selected
-                ? "bg-brand-red text-surface"
+                ? "bg-accent text-on-accent"
                 : "text-text-secondary hover:text-text-primary"
             }`}
           >

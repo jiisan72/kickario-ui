@@ -12,7 +12,7 @@ export interface InputProps
 
 /**
  * Text input with a label-above layout. Focus swaps the border color to
- * brand-red — no shadow/ring glow, matching the design system's flat,
+ * accent — no shadow/ring glow, matching the design system's flat,
  * bordered-surface treatment (see tokens.ts).
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
@@ -60,7 +60,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         className={`min-h-[44px] rounded-input border bg-surface px-4 py-3 text-body-15 text-text-primary outline-none transition-colors placeholder:text-text-tertiary ${
           error
             ? "border-danger focus:border-danger"
-            : "border-border focus:border-brand-red"
+            : "border-border focus:border-accent"
         }`}
         {...rest}
       />

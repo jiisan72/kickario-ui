@@ -13,7 +13,7 @@
 
 :root {
   /* Colors */
-  --md-color-canvas: #F8FAFC;
+  --md-color-canvas: #EAEEF3;
   --md-color-surface: #FFFFFF;
   --md-color-border: #E2E8F0;
   --md-color-divider: #F1F5F9;
@@ -23,9 +23,19 @@
   /* Form/small-caps label grey. See tokens.ts for why this needed its own
      token rather than reusing text-secondary. */
   --md-color-text-muted: #64748B;
-  --md-color-brand-red: #E11D48;
-  --md-color-brand-strong: #BE123D;
-  --md-color-brand-tint: #FDE0E6;
+  /* Kickario parent-brand red — from the 2026-09-08 logo set; reserved for
+     "Kickario the brand" and the LIVE treatment. See tokens.ts. */
+  --md-color-brand-red: #BD133D;
+  --md-color-brand-strong: #A0102F;
+  --md-color-brand-tint: #F6DEE4;
+  /* Kickario Matchday product accent (orange). accent is a FILL color;
+     accent-text is for text on light surfaces, on-accent for text on
+     accent fills (white on accent fails AA). Ratios in tokens.ts. */
+  --md-color-accent: #FF991C;
+  --md-color-on-accent: #0F172A;
+  --md-color-accent-strong: #D98218;
+  --md-color-accent-text: #945910;
+  --md-color-accent-tint: #FFF1DF;
   --md-color-success: #16A34A;
   --md-color-success-tint: #DCFCE7;
   /* Not in the V6 design bundle — added 2026-09-04 for the match-card
@@ -66,7 +76,7 @@
   --md-text-eyebrow-11-weight: 700;
   --md-text-eyebrow-11-line-height: 1.3;
   --md-text-eyebrow-11-letter-spacing: 0.5px;
-  --md-text-eyebrow-11-color: var(--md-color-brand-red);
+  --md-text-eyebrow-11-color: var(--md-color-accent-text);
   /* The design's eyebrow tier IS uppercase, but the Tailwind utility
      cannot express it (Tailwind's fontSize options drop text-transform) —
      so `text-eyebrow-11` supplies metrics only and call sites add
