@@ -4,6 +4,10 @@ Non-obvious findings worth not rediscovering. The Brand DNA section in
 `jiisan72/kickario`'s `CLAUDE.md` is the north star for anything
 visual here; it isn't repeated in this file.
 
+**New session? Read `docs/HANDOFF-2026-09-09-design-system.md` first** —
+the narrative of the split-out, the reasoning behind the token/theming
+design, each consumer's state, and the ordered to-do list.
+
 ## Repo setup
 
 - **Status (2026-09-09): split out of `jiisan72/kickario`'s

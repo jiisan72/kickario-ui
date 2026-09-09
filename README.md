@@ -141,6 +141,12 @@ To see a change in an app before pushing it, `npm link` from here and
 app's dependency at `#that-branch`. Once it's on `main`, every app picks
 it up on its next `npm install` (or `npm update @kickario/ui`).
 
+## Picking this up
+
+Start with [`docs/HANDOFF-2026-09-09-design-system.md`](docs/HANDOFF-2026-09-09-design-system.md)
+— what was done in the split-out, why it was done that way, the state
+of every consumer, and the prioritized list of what's left.
+
 ## History
 
 Lived at `packages/ui` inside `jiisan72/kickario` until 2026-09-09, when
