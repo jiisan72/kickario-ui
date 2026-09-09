@@ -35,10 +35,14 @@
 
      The *-rgb triplets are the source of truth: tokens.ts binds the
      Tailwind `accent*` colors to them (as `rgb(var(...) / <alpha>)`), and
-     the hex-looking properties below are derived. An app that carries a
-     different product color (Trainer: green) overrides ONLY the five
-     *-rgb properties in its own stylesheet, and every shared component
-     follows — see kickario-trainer's src/index.css. */
+     the hex-looking properties below are derived.
+
+     WHICH PRODUCT'S ACCENT an app gets is decided by ONE attribute on its
+     root element — `<html data-product="trainer">` — via the per-product
+     blocks at the end of this file. Every shared component and every page
+     class built on `accent*` follows from that single declaration; an app
+     never restates its palette. No attribute = Matchday (these defaults),
+     since the main app predates the attribute. */
   --md-color-accent-rgb: 255 153 28;        /* #FF991C */
   --md-color-on-accent-rgb: 15 23 42;       /* #0F172A */
   --md-color-accent-strong-rgb: 217 130 24; /* #D98218 */
@@ -149,4 +153,57 @@
   --md-elevation-resting: none;
   --md-elevation-sheet: none;
   --md-elevation-tray: none;
+}
+
+/* ---------------------------------------------------------------------
+   Product accents. One attribute on the app's root element picks its
+   palette:  <html data-product="trainer">  — and everything built on the
+   accent* tokens (every shared component, every page class) follows.
+   This is the ONLY place a product's color is defined; an app must not
+   restate these in its own stylesheet.
+
+   Values are the family palette from jiisan72/kickario-brand
+   (frontend/tailwind.config.ts, the `product-*` colors), which is the
+   source of truth for what each product looks like next to the others.
+   Matchday is the exception: the app retuned its orange on 2026-09-09
+   (#F06B00 → #FF991C, see tokens.ts), and the newer value wins here
+   until the brand site catches up.
+
+   on-accent is chosen per product for contrast on that fill:
+     trainer  white on #17803D = 5.0:1 (AA)
+     team     white on #1E4ED8 = 6.3:1 (AA)
+     club     ink   on #EBB000 = 9.6:1 (white on it would be 1.8:1)
+     matchday ink   on #FF991C = 8.4:1 (white on it would be 2.1:1)
+   accent-text is the darker step that clears 4.5:1 on white/canvas.
+   ------------------------------------------------------------------- */
+:root[data-product="matchday"] {
+  --md-color-accent-rgb: 255 153 28;
+  --md-color-on-accent-rgb: 15 23 42;
+  --md-color-accent-strong-rgb: 217 130 24;
+  --md-color-accent-text-rgb: 148 89 16;
+  --md-color-accent-tint-rgb: 255 241 223;
+}
+
+:root[data-product="trainer"] {
+  --md-color-accent-rgb: 23 128 61;         /* #17803D */
+  --md-color-on-accent-rgb: 255 255 255;
+  --md-color-accent-strong-rgb: 20 107 51;  /* #146B33 */
+  --md-color-accent-text-rgb: 20 107 51;    /* #146B33, 6.6:1 on white */
+  --md-color-accent-tint-rgb: 223 237 228;  /* #DFEDE4 */
+}
+
+:root[data-product="club"] {
+  --md-color-accent-rgb: 235 176 0;         /* #EBB000 */
+  --md-color-on-accent-rgb: 15 23 42;
+  --md-color-accent-strong-rgb: 201 151 0;  /* #C99700 */
+  --md-color-accent-text-rgb: 138 102 0;    /* #8A6600 */
+  --md-color-accent-tint-rgb: 252 244 219;  /* #FCF4DB */
+}
+
+:root[data-product="team"] {
+  --md-color-accent-rgb: 30 78 216;         /* #1E4ED8 */
+  --md-color-on-accent-rgb: 255 255 255;
+  --md-color-accent-strong-rgb: 26 67 184;  /* #1A43B8 */
+  --md-color-accent-text-rgb: 30 78 216;    /* #1E4ED8, 6.3:1 on white */
+  --md-color-accent-tint-rgb: 223 230 250;  /* #DFE6FA */
 }

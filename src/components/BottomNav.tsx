@@ -48,8 +48,13 @@ export function BottomNav({ items, className }: BottomNavProps) {
               this size. text-secondary (#475569, ~7.5:1) is the design
               system's muted-but-readable token. */}
           <Icon name={item.icon} size={20} className={item.active ? "text-accent" : "text-text-secondary"} />
+          {/* 13px, not the 11px label tier: a tab label is primary
+              wayfinding, read at arm's length on a phone, not a field
+              caption. Founder call (2026-09-09) after 11px read as too
+              small across the family. Five 13px/700 labels fit a 390px
+              bar with room; keep tabs to five. */}
           <span
-            className={`font-body text-[11px] ${item.active ? "font-bold text-accent-text" : "font-medium text-text-secondary"}`}
+            className={`font-body text-[13px] ${item.active ? "font-bold text-accent-text" : "font-semibold text-text-secondary"}`}
           >
             {item.label}
           </span>

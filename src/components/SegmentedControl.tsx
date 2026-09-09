@@ -70,7 +70,14 @@ export function SegmentedControl<T extends string>({
             // was the outlier. At 11px the four-option consent case fits
             // with room to spare, and the 44px minimum tap target is
             // untouched either way.
-            className={`min-h-[44px] min-w-0 flex-1 rounded-pill px-1 py-2 text-[11px] font-bold leading-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-50 ${
+            //
+            // 2026-09-09: 11px read as too small across the family
+            // (founder call); 12px is the top of that same tier and the
+            // four-option case still fits ("Nickname" ~57px at 12px/700
+            // in a ~58px box — tight, verify if a fifth option ever
+            // lands). Consumers with roomy 2-3 option controls can go
+            // larger via className; this is the floor.
+            className={`min-h-[44px] min-w-0 flex-1 rounded-pill px-1 py-2 text-[12px] font-bold leading-tight transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-50 ${
               selected
                 ? "bg-accent text-on-accent"
                 : "text-text-secondary hover:text-text-primary"

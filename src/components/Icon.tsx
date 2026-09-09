@@ -59,7 +59,15 @@ export type IconName =
   | "volume"
   | "volume-mute"
   | "close"
-  | "replay";
+  | "replay"
+  // Added 2026-09-09 for Kickario Trainer's tab bar (Learn, Progress,
+  // Messages, Coaches, Payments) — drawn to match the System/UI set, not
+  // from the V6 bundle. See sprite.svg.
+  | "book"
+  | "target"
+  | "message"
+  | "users"
+  | "wallet";
 
 export interface IconProps extends Omit<SVGAttributes<SVGSVGElement>, "className"> {
   name: IconName;
