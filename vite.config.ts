@@ -20,8 +20,13 @@ function copyRawTokensCss(): Plugin {
 }
 
 // Library-mode build for the @kickario/ui design-system package.
-// Consumers (packages/web, and later real screens) import from
-// "@kickario/ui" and "@kickario/ui/styles.css".
+//
+// Two entries:
+//   index  -> dist/kickario-ui.{js,cjs}  components + tokens (needs React)
+//   tokens -> dist/tokens.{js,cjs}       tokens only, no React — this is
+//             what consumers' tailwind.config.ts imports for the theme,
+//             since Tailwind loads its config in plain Node where the
+//             component bundle's jsx-runtime import is dead weight.
 export default defineConfig({
   plugins: [
     react(),
@@ -33,10 +38,16 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: {
+        index: resolve(__dirname, "src/index.ts"),
+        tokens: resolve(__dirname, "src/tokens.ts"),
+      },
       name: "KickarioUI",
-      fileName: (format) => `kickario-ui.${format === "es" ? "js" : "cjs"}`,
       formats: ["es", "cjs"],
+      fileName: (format, entryName) => {
+        const base = entryName === "index" ? "kickario-ui" : entryName;
+        return `${base}.${format === "es" ? "js" : "cjs"}`;
+      },
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
