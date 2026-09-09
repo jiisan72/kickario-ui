@@ -27,8 +27,12 @@
     "./styles.css": "./dist/kickario-ui.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
+  "bin": {
+    "kickario-ui-check": "./bin/check.mjs"
+  },
   "scripts": {
     "dev": "vite build --mode lib --watch",
     "build": "vite build --mode lib",

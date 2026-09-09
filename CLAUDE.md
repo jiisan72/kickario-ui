@@ -40,6 +40,18 @@ visual here; it isn't repeated in this file.
   ("255 153 28") is required — hex there would break `ring-accent/40`.
   Everything else in the palette (brand-red, success, danger, the
   neutrals) is literal hex and shared as-is.
+- **Products are declared, not styled (2026-09-09, Trainer as pilot).**
+  `<html data-product="trainer">` is an app's entire theme; the
+  per-product palette blocks at the end of `src/tokens.css` are the only
+  place a product's color exists. The rules an app must follow are in
+  README's "Rules for products", and `bin/check.mjs`
+  (`npx kickario-ui-check src index.html`) enforces the mechanical ones
+  in each app's CI. When a rule and a screen disagree, the fix is a
+  component or token added HERE, then used there — never a one-off in
+  the app. The main (Matchday) app predates the rules and fails the
+  check today (~70 findings, mostly 10–11px text and a missing
+  `data-product`); it runs with `--allow brand-token` because it is the
+  parent brand's own app.
 - **Diverging from `jiisan72/kickario`'s design tokens is now a real
   possibility** — `packages/ui` no longer exists there, so this repo is
   the only copy. Design-system decisions recorded in that repo's

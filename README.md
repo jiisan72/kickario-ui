@@ -78,6 +78,56 @@ not whatever `main` is now — `#main` in `package.json` does not float.
 After a change lands here, run `npm update @kickario/ui` in the app and
 commit its lockfile; that is the deploy.
 
+## Rules for products
+
+Kickario is one house with several rooms (Club, Team, Matchday, Trainer).
+These rules are what make a room recognizably part of the house while
+keeping its own color — and what make "change the green" a one-line
+edit here instead of a hunt through an app. Every app runs the check at
+the end in CI; Trainer was the pilot.
+
+1. **A product is declared, not styled.** `<html data-product="trainer">`
+   is the entire theme. `src/tokens.css` maps that attribute to the
+   product's accent palette; the app restates nothing. To change a
+   product's color, edit the block in `tokens.css` and bump the pin.
+2. **Apps use semantic tokens only.** `accent`, `accent-text`,
+   `accent-strong`, `accent-tint`, `on-accent`, the neutrals, and the
+   state colors. Never `brand-*` (that is the parent brand's own red,
+   reserved for Kickario-the-brand marks), never a hex, never Tailwind's
+   default palette. If a color is missing, add a token here first.
+3. **Components come from the system.** `Button`, `Input`,
+   `SegmentedControl`, `Card`, `SectionHeading`, `BottomNav`, `Toggle`,
+   `Radio`, `Chip`, `Icon`. An app does not hand-roll a pill button or a
+   tab bar. A component that's missing gets added here, then used —
+   the shared component is what carries the product color through.
+4. **Type and target floors.** Buttons 15px (`primary`/`secondary`/
+   `bare`); tab labels 13px; body text 13px minimum; SegmentedControl's
+   12px labels are the one control-label exception. Every interactive
+   element is at least 44px tall.
+5. **Five tabs, maximum.** More screens than that fold into groups with
+   a secondary row (see Trainer's Progress/Learn tabs).
+6. **Icons live in the sprite.** A new icon is drawn to the System/UI
+   set's style and added to `src/icons/sprite.svg` + `IconName`, not
+   inlined in a page.
+7. **The product mark is the brand's.** Favicons and shields come from
+   the family logo set in `jiisan72/kickario-brand/frontend/public/logos`.
+8. **Propagation is the lockfile bump.** One change here, then
+   `npm update @kickario/ui` per app. Nothing flows automatically, and
+   nothing is copied by hand.
+
+### The check
+
+```bash
+npx kickario-ui-check src index.html            # in an app
+npx kickario-ui-check src index.html --allow brand-token   # the Matchday app
+```
+
+It fails CI on `brand-*` classes, literal hex colors, Tailwind palette
+colors, any `text-[<13px]`, and a missing `data-product`; it warns on
+pill-shaped hand-rolled `<button>`s and stray 11–12px tiers. A line that
+must break a rule for a documented reason carries `ds-allow` in a comment
+on that line.
+
 ## Working on it
 
 ```bash
